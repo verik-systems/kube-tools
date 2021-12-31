@@ -9,7 +9,7 @@ A lightweight Docker image (based on Alpine) that comes with all the tools you n
  - Helm S3 plugin - https://github.com/hypnoglow/helm-s3
  - awscli https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
  - aws-iam-authenticator https://github.com/kubernetes-sigs/aws-iam-authenticator
- - doctl https://docs.digitalocean.com/reference/doctl/
+ - eksctl https://eksctl.io/introduction/#installation
  - yamllint - https://github.com/adrienverge/yamllint
  - yq (YAML parser based on `jq`) - https://github.com/kislyuk/yq
 
