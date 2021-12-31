@@ -25,12 +25,9 @@ chmod +x ./aws-iam-authenticator
 mv aws-iam-authenticator /usr/local/bin/aws-iam-authenticator
 aws-iam-authenticator help
 
-# Digital Ocean CLI (doctl)
-wget https://github.com/digitalocean/doctl/releases/download/v1.64.0/doctl-1.64.0-linux-amd64.tar.gz
-tar xf ./doctl-1.64.0-linux-amd64.tar.gz
-mv ./doctl /usr/local/bin
-rm ./doctl-1.64.0-linux-amd64.tar.gz
-doctl help
+# install eksctl 
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+mv /tmp/eksctl /usr/local/bin
 
 # install YAML tools
 pip install yamllint yq
