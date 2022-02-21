@@ -1,4 +1,4 @@
-FROM bust
+FROM alpine:3.14
 
 # https://github.com/hypnoglow/helm-s3
 ENV HELM_S3_PLUGIN_VERSION "0.10.0"
@@ -17,7 +17,7 @@ ENV VERSION=v12.4.0 NPM_VERSION=6 YARN_VERSION=latest
 # For base builds
 # ENV CONFIG_FLAGS="--fully-static --without-npm" DEL_PKGS="libstdc++" RM_DIRS=/usr/include
 
-RUN apk add --no-cache curl make gcc g++ python linux-headers binutils-gold gnupg libstdc++ && \
+RUN apk add --no-cache curl make gcc g++ python3 linux-headers binutils-gold gnupg libstdc++ && \
   for server in ipv4.pool.sks-keyservers.net keyserver.pgp.com ha.pool.sks-keyservers.net; do \
     gpg --keyserver $server --recv-keys \
       4ED778F539E3634C779C87C6D7062848A1AB005C \
@@ -60,14 +60,14 @@ RUN apk add --no-cache curl make gcc g++ python linux-headers binutils-gold gnup
       rm ${YARN_VERSION}.tar.gz*; \
     fi; \
   fi && \
-  apk del curl make gcc g++ python linux-headers binutils-gold gnupg ${DEL_PKGS} && \
+  apk del curl make gcc g++ python3 linux-headers binutils-gold gnupg ${DEL_PKGS} && \
   rm -rf ${RM_DIRS} /node-${VERSION}* /SHASUMS256.txt /usr/share/man /tmp/* /var/cache/apk/* \
     /root/.npm /root/.node-gyp /usr/lib/node_modules/npm/man \
     /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html /usr/lib/node_modules/npm/scripts && \
   { rm -rf /root/.gnupg || true; }
 
 # Install awscli
-RUN apk -Uuv add groff less python py-pip gettext \
+RUN apk -Uuv add groff less python3 py-pip gettext \
     && pip install awscli \
     && apk --purge -v del py-pip
 
