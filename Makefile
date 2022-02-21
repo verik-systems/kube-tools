@@ -1,7 +1,9 @@
-TAG?=v1
+DOCKER_IMAGE=veriks/kube-tools
+DOCKER_TAG=v0.3.1
 
 build:
-	docker build -t veriks/kube-tools:$(TAG) . -f Dockerfile
-
-push:
-	docker push veriks/kube-tools:$(TAG)
+	docker build -t $(DOCKER_IMAGE):$(DOCKER_TAG) .
+	  
+docker_push:
+	# Push to DockerHub
+	docker push $(DOCKER_IMAGE):$(DOCKER_TAG)
