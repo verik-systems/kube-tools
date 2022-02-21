@@ -18,7 +18,7 @@ ENV VERSION=v12.4.0 NPM_VERSION=6 YARN_VERSION=latest
 # ENV CONFIG_FLAGS="--fully-static --without-npm" DEL_PKGS="libstdc++" RM_DIRS=/usr/include
 
 RUN apk add --no-cache curl make gcc g++ python3 linux-headers binutils-gold gnupg libstdc++ && \
-  for server in hkp://keyserver.ubuntu.com:80; do \
+  for server in keyserver.ubuntu.com keys.openpgp.org pgp.mit.edu ; do \
     gpg --keyserver $server --recv-keys \
       4ED778F539E3634C779C87C6D7062848A1AB005C \
       B9E2F5981AA6E0CD28160D9FF13993A75599653C \
@@ -47,7 +47,7 @@ RUN apk add --no-cache curl make gcc g++ python3 linux-headers binutils-gold gnu
     fi; \
     find /usr/lib/node_modules/npm -name test -o -name .bin -type d | xargs rm -rf; \
     if [ -n "$YARN_VERSION" ]; then \
-      for server in hkp://keyserver.ubuntu.com:80; do \
+      for server in keyserver.ubuntu.com keys.openpgp.org pgp.mit.edu; do \
         gpg --keyserver $server --recv-keys \
           6A010C5166006599AA17F08146C2130DFD2497F5 && break; \
       done && \
