@@ -1,4 +1,5 @@
 # kube-tools
+[![build docker](https://github.com/verik-systems/kube-tools/actions/workflows/main.yml/badge.svg)](https://github.com/verik-systems/kube-tools/actions/workflows/main.yml)
 
 A lightweight Docker image (based on Alpine) that comes with all the tools you need to work with Kubernetes, Helm charts, AWS (awscli), AWS EKS, and Digital Ocean Kubernetes. Intended to be a flexible foundation of tools for CI/CD workflows.
 
