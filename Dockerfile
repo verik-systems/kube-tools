@@ -23,6 +23,9 @@ RUN curl --location "https://github.com/weaveworks/eksctl/releases/latest/downlo
     && mv /tmp/eksctl /usr/local/bin
 
 RUN curl -fsSL https://get.pulumi.com/ | sh
+
+RUN chmod +x /root/.pulumi/bin/*
+
 ENV PATH "/root/.pulumi/bin:${PATH}"
 
 RUN rm -rf /var/cache/apk/*
