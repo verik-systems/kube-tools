@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM bust
 
 # https://github.com/hypnoglow/helm-s3
 ENV HELM_S3_PLUGIN_VERSION "0.10.0"
