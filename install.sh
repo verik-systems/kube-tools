@@ -20,6 +20,9 @@ mv /tmp/eksctl /usr/local/bin
 # install YAML tools
 pip install yamllint yq
 
+# install Pulumi CLI
+curl -sSL https://get.pulumi.com | sh
+
 # cleanup
 rm /var/cache/apk/*
 rm -rf /tmp/*
