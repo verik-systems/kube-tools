@@ -124,7 +124,7 @@ RUN rm -rf /var/cache/apk/*
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-CMD [ "node" ]
+CMD bash
 
 
 # Just to make sure its installed alright
