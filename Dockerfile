@@ -122,7 +122,7 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
 RUN rm -rf /var/cache/apk/*
 
 COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
+# ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD bash
 
